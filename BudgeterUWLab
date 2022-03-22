@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class BudgeterUWLab {
+  
+  Scanner kb = new Scanner(System.in);
+  
+  
+  public static void main(String[] args) {
+    Introductor();
+   
+    
+  
+  }
+  
+  public static void Introductor() {
+    System.out.println("This program asks for your monthly income and expenses, then tells you your net monthly income.");
+    
+  }
+  
+  public static double income() {
+    
+    
+  }
+  
+  public static double monthlyExpenses() {
+    
+    
+  }
+  
+  public static double dailyExpenses() {
+    
+    
+  }
+  
+  public static double averages() {
+    
+    
+  }
+  
+  public static double netIncome() {
+    
+    
+  }
+  
+  
+  
+
+}
