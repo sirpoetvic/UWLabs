@@ -1,3 +1,4 @@
+package BudgeterUWLab_Folder;
 import java.util.Scanner;
 public class BudgeterUWLab {
   
@@ -11,9 +12,9 @@ public class BudgeterUWLab {
   public static void main(String[] args) {
     intro();
     income();
-  
-    
-  
+    monthlyExpenses();
+    getIncome();
+    getExpenses();  
   }
   
   public static void intro() {
@@ -44,6 +45,7 @@ public class BudgeterUWLab {
       for(int i = 0; i < expenseCategories; i++) {
         expensesTotal += sc.nextDouble();
       }
+      expensesTotalDaily = averages(expensesTotal, expenseCategories);
     }
 
     if(choice == 2) {
@@ -52,33 +54,25 @@ public class BudgeterUWLab {
       for(int i = 0; i < expenseCategories; i++) {
         expensesTotal += sc.nextDouble();
       }
-      expensesTotalDaily = expensesTotal
+      expensesTotalDaily = averages(expensesTotal, expenseCategories);
     }
 
     else {
       monthlyExpenses();
     }
     
-    
-    
   }
 
-  public static String getMontlyExpenses() {
-    return "Total expenses = $" + expensesTotal + "($ "+ ")";
+  public static String getExpenses() {
+    return "Total expenses = $" + expensesTotal + "($ " + expensesTotalDaily + ")";
   }
   
-  public static double dailyExpenses() {
-    
-    
+  public static double averages(double x, int y) {
+    return x / y;
   }
   
-  public static double averages() {
-    
-    
-  }
-  
-  public static double netIncome() {
-    
+  public static double getNetIncome() {
+    return incomeTotal;
     
   } 
   
