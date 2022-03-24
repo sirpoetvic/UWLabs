@@ -2,11 +2,11 @@ package BudgeterUWLab_Folder;
 import java.util.Scanner;
 public class BudgeterUWLab {
   
-  Scanner sc = new Scanner(System.in);
+  static Scanner sc = new Scanner(System.in);
   public static int incomeTotal;
-  public static int incomeTotalDaily;
+  public static double incomeTotalDaily;
   public static int expensesTotal;
-  public static int expensesTotalDaily;
+  public static double expensesTotalDaily;
   public static final int DAYS_IN_MONTH = 31;
   
   public static void main(String[] args) {
@@ -19,6 +19,7 @@ public class BudgeterUWLab {
   
   public static void intro() {
     System.out.println("This program asks for your monthly income and expenses, then tells you your net monthly income.");
+    System.out.println();
     
   }
   
@@ -27,7 +28,8 @@ public class BudgeterUWLab {
     int incomeCategories = sc.nextInt();
     
     for(int i = 0; i < incomeCategories; i++) {
-    incomeTotal += nextDouble();
+      System.out.println("Next income amount? ");
+      incomeTotal += sc.nextDouble();
     }
 
   }
@@ -39,15 +41,18 @@ public class BudgeterUWLab {
   public static void monthlyExpenses() {
     System.out.println("Enter 1) monthly or 2) daily expenses? ");
     int choice  = sc.nextInt();
+    //monthly
     if(choice == 1) {
       System.out.print("How many categories of expense? ");
       int expenseCategories = sc.nextInt();
       for(int i = 0; i < expenseCategories; i++) {
+        System.out.println("Next expense amount? ");
         expensesTotal += sc.nextDouble();
       }
       expensesTotalDaily = averages(expensesTotal, expenseCategories);
     }
-
+    
+    //daily
     if(choice == 2) {
       System.out.print("How many categories of expense? ");
       int expenseCategories = sc.nextInt();
@@ -68,7 +73,7 @@ public class BudgeterUWLab {
   }
   
   public static double averages(double x, int y) {
-    return x / y;
+    return x / (double) y;
   }
   
   public static double getNetIncome() {
