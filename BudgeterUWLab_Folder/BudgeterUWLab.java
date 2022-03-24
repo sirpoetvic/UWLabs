@@ -15,6 +15,7 @@ public class BudgeterUWLab {
     monthlyExpenses();
     getIncome();
     getExpenses();  
+    getIncome();
   }
   
   public static void intro() {
@@ -51,7 +52,7 @@ public class BudgeterUWLab {
       }
       expensesTotalDaily = averages(expensesTotal, expenseCategories);
     }
-    
+
     //daily
     if(choice == 2) {
       System.out.print("How many categories of expense? ");
@@ -60,10 +61,6 @@ public class BudgeterUWLab {
         expensesTotal += sc.nextDouble();
       }
       expensesTotalDaily = averages(expensesTotal, expenseCategories);
-    }
-
-    else {
-      monthlyExpenses();
     }
     
   }
@@ -81,5 +78,4 @@ public class BudgeterUWLab {
     
   } 
   
-
 }
