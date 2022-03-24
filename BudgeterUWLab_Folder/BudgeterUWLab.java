@@ -37,7 +37,27 @@ public class BudgeterUWLab {
   
   public static void monthlyExpenses() {
     System.out.println("Enter 1) monthly or 2) daily expenses? ");
-    
+    int choice  = sc.nextInt();
+    if(choice == 1) {
+      System.out.print("How many categories of expense? ");
+      int expenseCategories = sc.nextInt();
+      for(int i = 0; i < expenseCategories; i++) {
+        expensesTotal += sc.nextDouble();
+      }
+    }
+
+    if(choice == 2) {
+      System.out.print("How many categories of expense? ");
+      int expenseCategories = sc.nextInt();
+      for(int i = 0; i < expenseCategories; i++) {
+        expensesTotal += sc.nextDouble();
+      }
+      expensesTotalDaily = expensesTotal
+    }
+
+    else {
+      monthlyExpenses();
+    }
     
     
     
