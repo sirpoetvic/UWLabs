@@ -11,7 +11,7 @@ public class BudgeterUWLab {
   public static void main(String[] args) {
     intro();
     income();
-
+  
     
   
   }
