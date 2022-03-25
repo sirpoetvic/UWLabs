@@ -1,5 +1,4 @@
-package SpaceNeedleUWLab;
-
+package SpaceNeedleUWLab_Folder;
 public class PartB {
     public static void main(String[] args) {
         part1();

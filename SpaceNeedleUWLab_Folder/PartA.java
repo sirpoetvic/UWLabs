@@ -1,5 +1,4 @@
-package SpaceNeedleUWLab;
-
+package SpaceNeedleUWLab_Folder;
 public class PartA {
     public static void main(String[] args) {
         pyramid();
