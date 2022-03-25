@@ -15,7 +15,6 @@ public class BudgeterUWLab {
     monthlyExpenses();
     getIncome();
     getExpenses();  
-    getIncome();
   }
   
   public static void intro() {
@@ -35,8 +34,8 @@ public class BudgeterUWLab {
 
   }
 
-  public static String getIncome() {
-    return "Total Income = $" + incomeTotal;
+  public static void getIncome() {
+    System.out.println("Total Income = $" + incomeTotal);
   }
   
   public static void monthlyExpenses() {
@@ -58,6 +57,7 @@ public class BudgeterUWLab {
       System.out.print("How many categories of expense? ");
       int expenseCategories = sc.nextInt();
       for(int i = 0; i < expenseCategories; i++) {
+        System.out.println("Next expense amount?");
         expensesTotal += sc.nextDouble();
       }
       expensesTotalDaily = averages(expensesTotal, expenseCategories);
@@ -65,17 +65,12 @@ public class BudgeterUWLab {
     
   }
 
-  public static String getExpenses() {
-    return "Total expenses = $" + expensesTotal + "($ " + expensesTotalDaily + ")";
+  public static void getExpenses() {
+    System.out.println("Total expenses = $" + expensesTotal + "($ " + expensesTotalDaily + ")");
   }
   
   public static double averages(double x, int y) {
     return x / (double) y;
   }
-  
-  public static double getNetIncome() {
-    return incomeTotal;
-    
-  } 
   
 }
