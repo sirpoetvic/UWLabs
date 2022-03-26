@@ -15,7 +15,8 @@ public class BudgeterUWLab {
     income();
     monthlyExpenses();
     getIncome();
-    getExpenses();  
+    getExpenses();
+    performNetIncome();
   }
   
   public static void intro() {
@@ -75,10 +76,27 @@ public class BudgeterUWLab {
     return x / (double) y;
   }
 
-  public static void updateNetIncome() {
+  public static void performNetIncome() {
     netIncome = incomeTotal - expensesTotal;
-    if(netIncome > 0) {
-      
+    //Saver Response Category
+    if(netIncome >=0) {
+      System.out.println("You've saved $" + netIncome + " more than you spent this month.");
+      if(netIncome > 250) {
+        System.out.println("You're a big saver.");
+      }
+      else if(netIncome < 250) {
+        System.out.println("You're a saver.");
+      }
+    }
+    //Spender Response Category
+    if(netIncome < 0) {
+      System.out.println("You've spent $" + (netIncome * -1) + " more than you earned this month.");
+      if(netIncome > -250) {
+        System.out.println("You're a spender.");
+      }
+      else if(netIncome < -250) {
+        System.out.println("You're a big spender.");
+      }
     }
   }
   
