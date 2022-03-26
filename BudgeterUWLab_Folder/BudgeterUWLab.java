@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class BudgeterUWLab {
   
   static Scanner sc = new Scanner(System.in);
-  public static int incomeTotal;
+  public static double incomeTotal;
   public static double incomeTotalDaily;
-  public static int expensesTotal;
+  public static double expensesTotal;
   public static double expensesTotalDaily;
+  public static double netIncome;
   public static final int DAYS_IN_MONTH = 31;
   
   public static void main(String[] args) {
@@ -31,11 +32,12 @@ public class BudgeterUWLab {
       System.out.println("Next income amount? ");
       incomeTotal += sc.nextDouble();
     }
+    incomeTotalDaily = averages(incomeTotal, DAYS_IN_MONTH);
 
   }
 
   public static void getIncome() {
-    System.out.println("Total Income = $" + incomeTotal);
+    System.out.println("Total income = $" + incomeTotal + " ($" + incomeTotalDaily + "/day)");
   }
   
   public static void monthlyExpenses() {
@@ -49,7 +51,7 @@ public class BudgeterUWLab {
         System.out.println("Next expense amount? ");
         expensesTotal += sc.nextDouble();
       }
-      expensesTotalDaily = averages(expensesTotal, expenseCategories);
+      expensesTotalDaily = averages(expensesTotal, DAYS_IN_MONTH);
     }
 
     //daily
@@ -58,19 +60,26 @@ public class BudgeterUWLab {
       int expenseCategories = sc.nextInt();
       for(int i = 0; i < expenseCategories; i++) {
         System.out.println("Next expense amount?");
-        expensesTotal += sc.nextDouble();
+        expensesTotalDaily += sc.nextDouble();
       }
-      expensesTotalDaily = averages(expensesTotal, expenseCategories);
+      expensesTotal = expensesTotalDaily * DAYS_IN_MONTH;
     }
     
   }
 
   public static void getExpenses() {
-    System.out.println("Total expenses = $" + expensesTotal + "($ " + expensesTotalDaily + ")");
+    System.out.println("Total expenses = $" + expensesTotal + " ($" + expensesTotalDaily + "/day)");
   }
   
   public static double averages(double x, int y) {
     return x / (double) y;
+  }
+
+  public static void updateNetIncome() {
+    netIncome = incomeTotal - expensesTotal;
+    if(netIncome > 0) {
+      
+    }
   }
   
 }
