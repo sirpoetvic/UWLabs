@@ -22,7 +22,6 @@ public class BudgeterUWLab {
   public static void intro() {
     System.out.println("This program asks for your monthly income and expenses, then tells you your net monthly income.");
     System.out.println();
-    
   }
   
   public static void income() {
@@ -34,7 +33,6 @@ public class BudgeterUWLab {
       incomeTotal += sc.nextDouble();
     }
     incomeTotalDaily = averages(incomeTotal, DAYS_IN_MONTH);
-
   }
 
   public static void getIncome() {
@@ -65,7 +63,6 @@ public class BudgeterUWLab {
       }
       expensesTotal = expensesTotalDaily * DAYS_IN_MONTH;
     }
-    
   }
 
   public static void getExpenses() {
@@ -99,5 +96,4 @@ public class BudgeterUWLab {
       }
     }
   }
-  
 }
