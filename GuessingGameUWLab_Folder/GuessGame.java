@@ -12,6 +12,7 @@ public class GuessGame {
         Random rand = new Random();
         printHaiku();
         startGame();
+        randomNumber = rand.nextInt(100) + 1;
         while(gameComplete == false) {
             System.out.print("Your guess? ");
             int response = sc.nextInt();
@@ -43,12 +44,12 @@ public class GuessGame {
 
     public static void higher() {
         System.out.println("It's higher.");
-        totalGuesses++;
+        currentGameGuesses++;
     }
 
     public static void lower() {
         System.out.println("It's lower.");
-        totalGuesses++;
+        currentGameGuesses++;
     }
 
     public static void testGuess(int x) {
@@ -65,10 +66,6 @@ public class GuessGame {
             lower();
             //gameComplete is still false
         }
-    }
-        
-    public static void produceNum() {
-        randomNumber = rand.nextInt(100) + 1;
     }
 
     public static void displayResults() {
