@@ -20,18 +20,12 @@ public class GuessGame {
         randomNumber = rand.nextInt(100) + 1;
         while(notComplete) {
         startGame();
-<<<<<<< HEAD
-        randomNumber = rand.nextInt(100) + 1;
-        while(gameComplete == false) {
-=======
-        while(gameNotComplete) {
->>>>>>> 9fd7db29e4c2711fc126d0809dd2b453481a68af
+        while(gameNotComplete == true) {
             System.out.print("Your guess? ");
-            int response = sc.nextInt();
-            testGuess(response);
-        }
-        if(bestGame > currentGameGuesses) {
+            int guess = sc.nextInt();
+            if(bestGame > currentGameGuesses) {
             bestGame = currentGameGuesses;
+            }
         }
         totalGames++;
 
