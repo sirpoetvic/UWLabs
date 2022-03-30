@@ -1,6 +1,6 @@
-package GuessingGameUWLab_Folder;
 import java.util.Scanner;
 import java.util.Random;
+import java.text.DecimalFormat;
 public class GuessGame {
     public static int randomNumber;
     public static int totalGuesses;
@@ -13,9 +13,10 @@ public class GuessGame {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
+        DecimalFormat fmt = new DecimalFormat("0.##");
         printHaiku();
         performGame(sc, rand);
-        displayResults();
+        displayResults(fmt);
         
     }
 
@@ -81,10 +82,10 @@ public class GuessGame {
         }
     }
 
-    public static void displayResults() {
+    public static void displayResults(DecimalFormat fmt) {
         System.out.println("Overall results: ");
         System.out.println("Total games = " + totalGames);
-        System.out.println("Guess/game = " + (double) totalGuesses / (double) totalGames);
+        System.out.println("Guess/game = " + fmt.format((double) totalGuesses / (double) totalGames));
         System.out.println("Best game: " + bestGame);
     }
 
