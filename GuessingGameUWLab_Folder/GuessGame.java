@@ -1,3 +1,4 @@
+package GuessingGameUWLab_Folder;
 import java.util.Scanner;
 import java.util.Random;
 import java.text.DecimalFormat;
