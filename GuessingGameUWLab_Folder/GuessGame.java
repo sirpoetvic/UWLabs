@@ -1,6 +1,3 @@
-//Make a method that takes in the random number that is generated in main
-//and you can keep using the testGuess method to check (take the gues as a parameter along with the generated num)
-
 package GuessingGameUWLab_Folder;
 import java.util.Scanner;
 import java.util.Random;
@@ -12,31 +9,15 @@ public class GuessGame {
     public static int totalGames;
     public static boolean notComplete = true;
     public static int bestGame = 1000001;
-      
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         printHaiku();
-        randomNumber = rand.nextInt(100) + 1;
-        while(notComplete) {
-        startGame();
-        while(gameNotComplete == true) {
-            System.out.print("Your guess? ");
-            int guess = sc.nextInt();
-            if(bestGame > currentGameGuesses) {
-            bestGame = currentGameGuesses;
-            }
-        }
-        totalGames++;
-
-        System.out.println("Would you like to play again?");
-        String response = sc.nextLine();
-        if(!(response.startsWith("y"))) {
-            displayResults();
-            break;
-        }
-        randomNumber = rand.nextInt(100) + 1;
-        }
+        performGame(sc, rand);
+        playAgain(sc, rand);
+        displayResults();
+        
     }
 
     public static void printHaiku() {
@@ -45,26 +26,40 @@ public class GuessGame {
         System.out.println();
     }
 
-    public static void startGame() {
+    public static void performGame(Scanner sc, Random rand) {
+        totalGames++;
         gameNotComplete = true;
         System.out.println("I'm thinking of a number between 1 and 100...");
+        makeRandomNumber(rand);
+        while(gameNotComplete) {
+            System.out.println("Your guess?");
+            int guess = Integer.parseInt(sc.next());
+            testGuess(guess);
+        }
+        playAgain(sc, rand);
+    }
+
+    public static void makeRandomNumber(Random rand) {
+        randomNumber = rand.nextInt(100) + 1;
     }
 
     public static void higher() {
-        System.out.println("It's higher.");
         currentGameGuesses++;
+        System.out.println("It's higher.");
     }
 
     public static void lower() {
-        System.out.println("It's lower.");
         currentGameGuesses++;
+        System.out.println("It's lower.");
     }
 
     public static void testGuess(int x) {
         if(x == randomNumber) {
+            currentGameGuesses++;
             System.out.println("You got it right in " + currentGameGuesses + " guesses!");
             gameNotComplete = false;
             totalGuesses += currentGameGuesses;
+            currentGameGuesses = 0;
         }
         else if(x < randomNumber) {
             higher();
@@ -76,10 +71,21 @@ public class GuessGame {
         }
     }
 
+    public static void playAgain(Scanner sc, Random rand) {
+        System.out.println("Would you like to play again? ");
+        String response = sc.next();
+        if(response.startsWith("y")) {
+            performGame(sc, rand);
+        }
+    }
+
     public static void displayResults() {
-        System.out.println("Overall results = ");
+        System.out.println("Overall results: ");
         System.out.println("Total games = " + totalGames);
         System.out.println("Guess/game = " + (double) totalGuesses / (double) totalGames);
         System.out.println("Best game: " + bestGame);
     }
+
+
+
 }
