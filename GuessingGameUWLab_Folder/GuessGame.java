@@ -15,7 +15,6 @@ public class GuessGame {
         Random rand = new Random();
         printHaiku();
         performGame(sc, rand);
-        playAgain(sc, rand);
         displayResults();
         
     }
@@ -58,6 +57,9 @@ public class GuessGame {
             currentGameGuesses++;
             System.out.println("You got it right in " + currentGameGuesses + " guesses!");
             gameNotComplete = false;
+            if(currentGameGuesses < bestGame) {
+                bestGame = currentGameGuesses;
+            }
             totalGuesses += currentGameGuesses;
             currentGameGuesses = 0;
         }
