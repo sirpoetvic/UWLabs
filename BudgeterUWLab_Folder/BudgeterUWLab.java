@@ -1,4 +1,5 @@
 package BudgeterUWLab_Folder;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 public class BudgeterUWLab {
   
@@ -11,11 +12,12 @@ public class BudgeterUWLab {
   
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+    DecimalFormat fmt = new DecimalFormat("0.##");
     intro();
     income(sc);
     monthlyExpenses(sc);
-    getIncome(sc);
-    getExpenses(sc);
+    getIncome(sc, fmt);
+    getExpenses(sc, fmt);
     performNetIncome(sc);
   }
   
@@ -35,8 +37,8 @@ public class BudgeterUWLab {
     incomeTotalDaily = averages(incomeTotal, DAYS_IN_MONTH);
   }
 
-  public static void getIncome(Scanner sc) {
-    System.out.println("Total income = $" + incomeTotal + " ($" + incomeTotalDaily + "/day)");
+  public static void getIncome(Scanner sc, DecimalFormat fmt) {
+    System.out.println("Total income = $" + incomeTotal + " ($" + fmt.format(incomeTotalDaily) + "/day)");
   }
   
   public static void monthlyExpenses(Scanner sc) {
@@ -65,8 +67,8 @@ public class BudgeterUWLab {
     }
   }
 
-  public static void getExpenses(Scanner sc) {
-    System.out.println("Total expenses = $" + expensesTotal + " ($" + expensesTotalDaily + "/day)");
+  public static void getExpenses(Scanner sc, DecimalFormat fmt) {
+    System.out.println("Total expenses = $" + expensesTotal + " ($" + fmt.format(expensesTotalDaily) + "/day)");
   }
   
   public static double averages(double x, int y) {

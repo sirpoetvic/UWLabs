@@ -22,8 +22,9 @@ public class GuessGame {
     }
 
     public static void printHaiku() {
-        System.out.println();
-        System.out.println();
+        System.out.println("The color blue");
+        System.out.println("Is like the sky on a clear day");
+        System.out.println("It is peaceful and calming.");
         System.out.println();
     }
 
