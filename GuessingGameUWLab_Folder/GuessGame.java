@@ -9,7 +9,7 @@ public class GuessGame {
     public static boolean gameNotComplete = true;
     public static int totalGames;
     public static boolean notComplete = true;
-    public static int bestGame = 1000001;
+    public static int bestGame = 1000000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -22,9 +22,9 @@ public class GuessGame {
     }
 
     public static void printHaiku() {
-        System.out.println("The color blue");
-        System.out.println("Is like the sky on a clear day");
-        System.out.println("It is peaceful and calming.");
+        System.out.println("The number is right");
+        System.out.println("I'll tell you higher or lower");
+        System.out.println("How many guesses?");
         System.out.println();
     }
 
