@@ -1,3 +1,12 @@
+//Victor Wong
+//March 19th, 2022
+//CSE142
+//TA: TA Name
+//Take-Home Assessment #5
+//
+//This program is intended to simulate a guessing number game
+//a number is chosen from 1-100, and high/low helps the player figure out
+//the answer. Results are stored in this program.
 package GuessingGameUWLab_Folder;
 import java.util.Scanner;
 import java.util.Random;

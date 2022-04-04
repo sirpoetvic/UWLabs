@@ -1,3 +1,12 @@
+//Victor Wong
+//April 4th, 2022
+//CSE142
+//TA: TA Name
+//Take-Home Assessment #4
+//
+//This program is intended to help with budgeting
+//and takes in income and expenses
+//in order to produce a response based on the inputs
 package BudgeterUWLab_Folder;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -18,7 +27,7 @@ public class BudgeterUWLab {
     monthlyExpenses(sc);
     getIncome(sc, fmt);
     getExpenses(sc, fmt);
-    performNetIncome(sc);
+    performNetIncome(sc, fmt);
   }
   
   public static void intro() {
@@ -27,31 +36,34 @@ public class BudgeterUWLab {
   }
   
   public static void income(Scanner sc) {
-    System.out.println("How many categories of income?");
+    System.out.print("How many categories of income? ");
     int incomeCategories = sc.nextInt();
     
     for(int i = 0; i < incomeCategories; i++) {
-      System.out.println("Next income amount? ");
+      System.out.print("Next income amount? $");
       incomeTotal += sc.nextDouble();
     }
+    System.out.println();
     incomeTotalDaily = averages(incomeTotal, DAYS_IN_MONTH);
   }
 
   public static void getIncome(Scanner sc, DecimalFormat fmt) {
-    System.out.println("Total income = $" + incomeTotal + " ($" + fmt.format(incomeTotalDaily) + "/day)");
+    System.out.println("Total income = $" + fmt.format(incomeTotal) + " ($" + fmt.format(incomeTotalDaily) + "/day)");
   }
   
   public static void monthlyExpenses(Scanner sc) {
-    System.out.println("Enter 1) monthly or 2) daily expenses? ");
+    System.out.print("Enter 1) monthly or 2) daily expenses? ");
     int choice  = sc.nextInt();
+    System.out.println();
     //monthly
     if(choice == 1) {
       System.out.print("How many categories of expense? ");
       int expenseCategories = sc.nextInt();
       for(int i = 0; i < expenseCategories; i++) {
-        System.out.println("Next expense amount? ");
+        System.out.print("Next expense amount? $");
         expensesTotal += sc.nextDouble();
       }
+      System.out.println();
       expensesTotalDaily = averages(expensesTotal, DAYS_IN_MONTH);
     }
 
@@ -60,41 +72,48 @@ public class BudgeterUWLab {
       System.out.print("How many categories of expense? ");
       int expenseCategories = sc.nextInt();
       for(int i = 0; i < expenseCategories; i++) {
-        System.out.println("Next expense amount?");
+        System.out.print("Next expense amount? $");
         expensesTotalDaily += sc.nextDouble();
       }
+      System.out.println();
       expensesTotal = expensesTotalDaily * DAYS_IN_MONTH;
     }
   }
 
   public static void getExpenses(Scanner sc, DecimalFormat fmt) {
-    System.out.println("Total expenses = $" + expensesTotal + " ($" + fmt.format(expensesTotalDaily) + "/day)");
+    System.out.println("Total expenses = $" + fmt.format(expensesTotal) + " ($" + fmt.format(expensesTotalDaily) + "/day)");
   }
   
   public static double averages(double x, int y) {
     return x / (double) y;
   }
 
-  public static void performNetIncome(Scanner sc) {
+  public static void performNetIncome(Scanner sc, DecimalFormat fmt) {
     netIncome = incomeTotal - expensesTotal;
     //Saver Response Category
-    if(netIncome >=0) {
-      System.out.println("You've saved $" + netIncome + " more than you spent this month.");
+    if(netIncome > 0) {
+      System.out.println();
+      System.out.println("You've saved $" + fmt.format(netIncome) + " more than you spent this month.");
       if(netIncome > 250) {
         System.out.println("You're a big saver.");
+        System.out.println("Saving up for a vacation, are you?");
       }
-      else if(netIncome < 250) {
+      else if(netIncome <= 250) {
         System.out.println("You're a saver.");
+        System.out.println("Good job!");
       }
     }
     //Spender Response Category
-    if(netIncome < 0) {
-      System.out.println("You've spent $" + (netIncome * -1) + " more than you earned this month.");
+    if(netIncome <= 0) {
+      System.out.println();
+      System.out.println("You've spent $" + fmt.format(netIncome * -1) + " more than you earned this month.");
       if(netIncome > -250) {
         System.out.println("You're a spender.");
+        System.out.print("Have you tried saving?");
       }
-      else if(netIncome < -250) {
+      else if(netIncome <= -250) {
         System.out.println("You're a big spender.");
+        System.out.println("You should definitely make a better budget.");
       }
     }
   }
