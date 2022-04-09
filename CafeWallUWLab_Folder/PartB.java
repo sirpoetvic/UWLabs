@@ -1,34 +1,81 @@
 //Victor Wong 
-//April 6th, 2022
+//April 8th, 2022
 //CSE142
 //TA: TA Name
 //Take-Home Assessment #3, Part B
 //
 //This program is intended to produce a depiction of the "Cafe Wall" illusion
-//in the DrawingPanel GUI.  
+//in the DrawingPanel GUI.
 package CafeWallUWLab_Folder;
 import java.awt.*;
 public class PartB {
-    static DrawingPanel draw = new DrawingPanel(1000, 1000);
+    //static objects for DrawingPanel GUI
+    static DrawingPanel draw = new DrawingPanel(650, 400);
     static Graphics graphics = draw.getGraphics();
-    static int MORTAR = 2;
+    //MORTAR can be changed to make the gaps between rows larger or smaller
+    static final int MORTAR = 2;
     public static void main(String[] args) {
-        
+        //set background to gray
+        draw.setBackground(Color.GRAY);
+
+        //int sideLen, int x, int y, int rowLen <--- Makes a row
+        //int offSet, int numRowPairs, int sideLen, int x, int y <--- Makes a grid
+
+        //produce row A
+        rowMaker(20, 0, 0, 4);
+        //produce row B
+        rowMaker(30, 50, 70, 5);
+        //produce grid C
+        gridMaker(35, 2, 35, 400, 20);
+        //produce grid D
+        gridMaker(0, 4, 25, 10, 150);
+        //produce grid E
+        gridMaker(10, 3, 25, 250, 200);
+        //produce grid F
+        gridMaker(10, 5, 20, 425, 180);
+
     }
 
-    public static void boxPairMaker(int sideLength, int x, int y) {
-        graphics.drawRect(x, y, sideLength, sideLength);
-        graphics.drawLine(x, y, x + sideLength, y + sideLength);
-        graphics.drawLine(x, y + sideLength, x + sideLength, y);
+    //Makes a row based on sidelength, x, y, and the length of the row
+    public static void rowMaker(int sideLen, int x, int y, int rowLen) {
+        for(int i = 0; i < rowLen; i++) {
+            graphics.setColor(Color.BLACK);
+            graphics.fillRect(x, y, sideLen, sideLen);
+            graphics.setColor(Color.BLUE);
+            graphics.drawLine(x, y, x + sideLen, y + sideLen);
+            graphics.drawLine(x + sideLen, y, x, y + sideLen);
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(x + sideLen, y, sideLen, sideLen);
+            //Moves x to next position to draw squares
+            x += sideLen * 2;
+        }
+    }
+    
+    //Makes a grid using rowMaker method using offset, mortar, the number of row pairs, and
+    //parameters used for rowMaker
+    public static void gridMaker(int offSet, int numRowPairs, int sideLen, int x, int y) {
+        //loops through however many times required to draw number of rows
+        for(int k = 0; k < numRowPairs; k++) {
+            //draws a row without offset
+            for(int i = 0; i < 1; i++) {
+                rowMaker(sideLen, x, y, numRowPairs);
+                //changes y to make for gaps between rows
+                y += MORTAR;
+                //updates y to new position for next row to be drawn
+                y += sideLen;
+            }
+            
+            //draws a row with offset
+            for(int j = 0; j < 1; j++) {
+                rowMaker(sideLen, x + offSet, y, numRowPairs);
+                //changes y to make for gaps between rows
+                y += MORTAR;
+                //updates y to new position for next row to be drawn
+                y += sideLen;
+            }
+        }
     }
 
-    //generates a row of xBox and whiteBox based on parameters
-    public static void rowMaker(int rowLength) {
-         
-    }
 
-    public static void gridMaker() {
-        //use rowMaker method
-    }
 
 }
