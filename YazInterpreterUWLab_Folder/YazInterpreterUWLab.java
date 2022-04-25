@@ -1,6 +1,6 @@
 package YazInterpreterUWLab_Folder;
  
- import java.util.Scanner;
+import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -51,20 +51,36 @@ import java.io.PrintStream;
         int temp = Integer.parseInt(stringCheck.next());
         String unit = stringCheck.next().toLowerCase();
         if(unit.equals("c"))
-            double f = 1.8 * temp + 32;
+            double f = (1.8 * temp) + 32;
+            System.out.println(f + "F");
         else if(unit.equals("F"))
+            double c = (temp - 32) / 1.8;
+            System.out.println(c + "C");
             
      }
 
-     public static void range(String currentLine, Scanner stringCheck) {
+     public static void range(Scanner stringCheck) {
         stringCheck.next();
         int firstNumber = Integer.parseInt(stringCheck.next());
         int secondNumber = Integer.parseInt(stringCheck.next());
         int thirdNumber = Integer.parseInt(stringCheck.next());
+        for(firstNumber; firstNumber <= secondNumber; firstNumber += thirdNumber) {
+            System.out.print(firstNumber + " ");
+        }
+        
      }
 
-     public static void repeat(String currentLine, Scanner stringCheck) {
-        System.out.println("repeat");
+    @Override
+     public static void repeat(Scanner stringCheck) {
+        stringCheck.next();
+        while(stringCheck.hasNext) {
+            String repeated = stringcheck.next();
+            int repeatNum = Integer.parseInt(stringCheck.next());
+            for(int i = 0; i < repeatNum; i++) {
+                System.out.print(repeated);
+            }
+        }
+        }
      }
 
      public static void contentConverter(Scanner sc) throws FileNotFoundException {
@@ -75,13 +91,13 @@ import java.io.PrintStream;
             String currentLine = input.nextLine();
             Scanner stringCheck = new Scanner(currentLine);
             if(currentLine.substring(0,7).equals("CONVERT")) {
-                convert(currentLine, stringCheck);
+                convert(stringCheck);
             }
             else if(currentLine.substring(0,5).equals("RANGE")) {
-                range(currentLine, stringCheck);
+                range(stringCheck);
             }
             if(currentLine.substring(0,6).equals("REPEAT")) {
-                repeat(currentLine, stringCheck);
+                repeat(stringCheck);
             }
 
         }
