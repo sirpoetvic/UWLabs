@@ -1,8 +1,8 @@
- package YazInterpreterUWLab_Folder;
+package YazInterpreterUWLab_Folder;
+ 
  import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.io.PrintStream;
 
  public class YazInterpreterUWLab {
@@ -37,12 +37,54 @@ import java.io.PrintStream;
             printContents(sc);
             noSelectedOption = false;
         } else if(response.equals("q")) {
+            programRunning = false;
             noSelectedOption = false;
         }
         else {
             optionSelect(sc);
         }
 
+     }
+
+     public static void convert(String currentLine, Scanner stringCheck) {
+        stringCheck.next();
+        int temp = Integer.parseInt(stringCheck.next());
+        String unit = stringCheck.next().toLowerCase();
+        if(unit.equals("c"))
+            double f = 1.8 * temp + 32;
+        else if(unit.equals("F"))
+            
+     }
+
+     public static void range(String currentLine, Scanner stringCheck) {
+        stringCheck.next();
+        int firstNumber = Integer.parseInt(stringCheck.next());
+        int secondNumber = Integer.parseInt(stringCheck.next());
+        int thirdNumber = Integer.parseInt(stringCheck.next());
+     }
+
+     public static void repeat(String currentLine, Scanner stringCheck) {
+        System.out.println("repeat");
+     }
+
+     public static void contentConverter(Scanner sc) throws FileNotFoundException {
+        System.out.println("input file name?");
+        String inputFile = sc.nextLine();
+        Scanner input = new Scanner(new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile));
+        while(input.hasNextLine()) {
+            String currentLine = input.nextLine();
+            Scanner stringCheck = new Scanner(currentLine);
+            if(currentLine.substring(0,7).equals("CONVERT")) {
+                convert(currentLine, stringCheck);
+            }
+            else if(currentLine.substring(0,5).equals("RANGE")) {
+                range(currentLine, stringCheck);
+            }
+            if(currentLine.substring(0,6).equals("REPEAT")) {
+                repeat(currentLine, stringCheck);
+            }
+
+        }
      }
 
      public static void printContents(Scanner sc) throws FileNotFoundException {
@@ -53,15 +95,6 @@ import java.io.PrintStream;
         System.out.println(file.exists());
         while(input.hasNextLine()) {
             System.out.println(input.nextLine());
-        }
-     }
-
-     public static void contentConverter(Scanner sc) throws FileNotFoundException {
-        System.out.println("input file name?");
-        String inputFile = sc.nextLine();
-        Scanner input = new Scanner(new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile));
-        while(input.hasNextLine()) {
-            
         }
      }
 
