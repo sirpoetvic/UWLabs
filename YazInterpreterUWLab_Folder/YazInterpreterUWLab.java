@@ -50,12 +50,14 @@ import java.io.PrintStream;
         stringCheck.next();
         int temp = Integer.parseInt(stringCheck.next());
         String unit = stringCheck.next().toLowerCase();
-        if(unit.equals("c"))
+        if(unit.equals("c")) {
             double f = (1.8 * temp) + 32;
             System.out.println(f + "F");
-        else if(unit.equals("F"))
+        }
+        else if(unit.equals("F")) {
             double c = (temp - 32) / 1.8;
             System.out.println(c + "C");
+        }
             
      }
 
