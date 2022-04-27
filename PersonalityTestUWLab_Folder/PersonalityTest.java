@@ -49,8 +49,6 @@ public class PersonalityTest {
     }
 
     public static String determineType(int[][] organizedResults) {
-        // int[] tempASet = organizedResults[0];
-        // int[] tempBSet = organizedResults[1];
         int[] tempPercentSet = organizedResults[2];
 
         String identification = "";
@@ -167,7 +165,7 @@ public class PersonalityTest {
         int[][] organizedResults = new int[][] { {extrovertA, sensationA, thinkingA, judgingA},
                                                  {introvertB, iNtuitionB, feelingB, percievingB}, 
                                                  {IEpercent, SNpercent, TFpercent, JPpercent}
-    };
+                                                };
         return organizedResults;
 
     }

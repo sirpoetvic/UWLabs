@@ -13,7 +13,6 @@ public class YazInterpreterUWLab {
         while (programRunning) {
             optionSelect(sc);
         }
-
         sc.close();
     }
 
