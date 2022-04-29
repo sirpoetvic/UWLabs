@@ -6,7 +6,7 @@
 //
 //This program is intended to produce a depiction of the "Cafe Wall" illusion
 //in the DrawingPanel GUI.
-package CafeWallUWLab_Folder;
+package UWLabs.CafeWallUWLab_Folder;
 import java.awt.*;
 public class PartB {
     //static objects for DrawingPanel GUI

@@ -6,7 +6,7 @@
 //
 //This program is intended to print out a pyramid with a star
 //in the top left corner
-package SpaceNeedleUWLab_Folder;
+package UWLabs.SpaceNeedleUWLab_Folder;
 public class PartA {
     public static void main(String[] args) {
         pyramid();
