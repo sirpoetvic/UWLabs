@@ -3,9 +3,13 @@ package UWLabs.YazInterpreterUWLab_Folder;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 
 public class YazInterpreterUWLab {
     static boolean programRunning = true;
+    static boolean consoleOutput = true;
+    static PrintStream console = System.out;
+
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
@@ -30,10 +34,13 @@ public class YazInterpreterUWLab {
 
         while (noSelectedOption)
             if (response.equals("i")) {
+                consoleOutput = false;
                 contentConverter(sc);
+                programRunning = true;
                 noSelectedOption = false;
             } else if (response.equals("v")) {
-                printContents(sc);
+                contentConverter(sc);
+                programRunning = true;
                 noSelectedOption = false;
             } else if (response.equals("q")) {
                 programRunning = false;
@@ -73,9 +80,9 @@ public class YazInterpreterUWLab {
         stringCheck.next();
         while (stringCheck.hasNext()) {
             String temp = stringCheck.next();
-            String repeated = temp.replace("_", " ").substring(1, temp.length() - 2);
+            String repeated = temp.replace("_", " ").substring(1, temp.length() - 1);
             int repeatNum = Integer.parseInt(stringCheck.next());
-            for (int i = 0; i <= repeatNum; i++) {
+            for (int i = 0; i < repeatNum; i++) {
                 System.out.print(repeated);
             }
         }
@@ -86,7 +93,14 @@ public class YazInterpreterUWLab {
     public static void contentConverter(Scanner sc) throws FileNotFoundException {
         System.out.println("input file name?");
         String inputFile = sc.nextLine();
-        Scanner input = new Scanner(new File("..\\UWLabsFolder\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile));
+        Scanner input = new Scanner(new File("..\\UWLabs\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile));
+
+        if(!consoleOutput) {
+            System.out.println("output file name?");
+            String outputFile = sc.nextLine();
+            PrintStream output = new PrintStream(new File("..\\UWLabs\\UWLabs\\YazInterpreterUWLab_Folder\\" + outputFile));
+            System.setOut(output);
+        }
         while (input.hasNextLine()) {
             String currentLine = input.nextLine();
             Scanner stringCheck = new Scanner(currentLine);
@@ -97,18 +111,9 @@ public class YazInterpreterUWLab {
             else if (currentLine.substring(0, 6).equals("REPEAT")) 
                 repeat(stringCheck);
         }
-    }
-
-    public static void printContents(Scanner sc) throws FileNotFoundException {
-        System.out.println("input file name?");
-        String inputFile = sc.nextLine();
-        File file = new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile);
-        Scanner input = new Scanner(file);
-        System.out.println(file.exists());
-        while (input.hasNextLine()) {
-            System.out.println(input.nextLine());
-        }
-        input.close();
+        System.setOut(console);
+        consoleOutput = true;
+        
     }
 
     public static void quit() {
