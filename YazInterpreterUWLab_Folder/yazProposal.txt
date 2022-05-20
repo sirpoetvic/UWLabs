@@ -1,1 +1,11 @@
+Name of command: SPLIT
 
+Description of what the command does:
+SPLIT takes an arbitrary number of pairs of Strings (string and promptly split device) and splits them by a specific character,
+and creates a large string with each character of the string separated by said character. Character splitter is omitted from
+returned string.
+
+
+Sample input/output: 
+Input: SPLIT "jklafhdsafashj" "a" "jsjsjsjsjsj" "a"
+Output: "jkl fhds f shj" "jsjsjsjsjsj"

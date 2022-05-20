@@ -30,11 +30,14 @@ public class BudgeterUWLab {
     performNetIncome(sc, fmt);
   }
   
+  //Prints the intro message
   public static void intro() {
     System.out.println("This program asks for your monthly income and expenses, then tells you your net monthly income.");
     System.out.println();
   }
   
+  //Income information intake, generates the average income for a day
+  //Parameter sc: allows this method to intake information from the terminal
   public static void income(Scanner sc) {
     System.out.print("How many categories of income? ");
     int incomeCategories = sc.nextInt();
@@ -47,14 +50,19 @@ public class BudgeterUWLab {
     incomeTotalDaily = averages(incomeTotal, DAYS_IN_MONTH);
   }
 
+  //Prints income in a formatted string
+  //Parameter sc: allows this method to intake information from the terminal
+  //Parameter fmt: allows this method to format the decimals in such fashion of 0.##.
   public static void getIncome(Scanner sc, DecimalFormat fmt) {
     System.out.println("Total income = $" + fmt.format(incomeTotal) + " ($" + fmt.format(incomeTotalDaily) + "/day)");
   }
   
+  //Expenses information intake, generates the average expenses for a day
   public static void monthlyExpenses(Scanner sc) {
     System.out.print("Enter 1) monthly or 2) daily expenses? ");
     int choice  = sc.nextInt();
     System.out.println();
+
     //monthly
     if(choice == 1) {
       System.out.print("How many categories of expense? ");
@@ -80,14 +88,21 @@ public class BudgeterUWLab {
     }
   }
 
+  //Prints expenses in a formatted string
+  //Parameter sc: allows this method to intake information from the terminal
+  //Parameter fmt: allows this method to format the decimals in such fashion of 0.##.
   public static void getExpenses(Scanner sc, DecimalFormat fmt) {
     System.out.println("Total expenses = $" + fmt.format(expensesTotal) + " ($" + fmt.format(expensesTotalDaily) + "/day)");
   }
   
+  //Returns averages of x and y
   public static double averages(double x, int y) {
     return x / (double) y;
   }
 
+  //Produces a message based on income and expenses, and how they balance out
+  //Parameter sc: allows this method to intake information from the terminal
+  //Parameter fmt: allows this method to format the decimals in such fashion of 0.##.
   public static void performNetIncome(Scanner sc, DecimalFormat fmt) {
     netIncome = incomeTotal - expensesTotal;
     //Saver Response Category

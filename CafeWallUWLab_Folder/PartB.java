@@ -37,6 +37,10 @@ public class PartB {
     }
 
     //Makes a row based on sidelength, x, y, and the length of the row
+    //Parameter sideLen: sidelength of individual squares
+    //Parameter x: x of the start position (top left)
+    //Parameter y: y of the start position (top left)
+    //Parameter rowLen: length of the row made
     public static void rowMaker(int sideLen, int x, int y, int rowLen) {
         for(int i = 0; i < rowLen; i++) {
             graphics.setColor(Color.BLACK);
@@ -52,7 +56,9 @@ public class PartB {
     }
     
     //Makes a grid using rowMaker method using offset, mortar, the number of row pairs, and
-    //parameters used for rowMaker
+    //parameters used from rowMaker, excluding rowLen
+    //Parameter offSet: shift on even numbered blocks
+    //Parameter numRowPairs: number of row pairs
     public static void gridMaker(int offSet, int numRowPairs, int sideLen, int x, int y) {
         //loops through however many times required to draw number of rows
         for(int k = 0; k < numRowPairs; k++) {
