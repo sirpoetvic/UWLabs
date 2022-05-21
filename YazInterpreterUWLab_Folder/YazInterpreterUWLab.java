@@ -20,6 +20,7 @@ public class YazInterpreterUWLab {
         sc.close();
     }
 
+    //Prints the "intro" message
     public static void printIntro() {
         System.out.println("Welcome to YazInterpreter!");
         System.out.println("You may interpret a YazLang program and output");

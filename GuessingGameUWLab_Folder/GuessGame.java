@@ -30,6 +30,7 @@ public class GuessGame {
         
     }
 
+    //Prints the "intro" message haiku
     public static void printHaiku() {
         System.out.println("The number is right");
         System.out.println("I'll tell you higher or lower");
@@ -37,6 +38,9 @@ public class GuessGame {
         System.out.println();
     }
 
+    //Performs the action of the game, making a random number and testing the guess
+    //Parameter sc: allows this method to intake information from the terminal
+    //Parameter rand: generates a random number
     public static void performGame(Scanner sc, Random rand) {
         totalGames++;
         gameNotComplete = true;
@@ -50,20 +54,25 @@ public class GuessGame {
         playAgain(sc, rand);
     }
 
+    //generates a random number
+    //Parameter rand: generates a random number
     public static void makeRandomNumber(Random rand) {
         randomNumber = rand.nextInt(100) + 1;
     }
 
+    //Used if the guess is higher than the guess
     public static void higher() {
         currentGameGuesses++;
         System.out.println("It's higher.");
     }
 
+    //Method used if the guess is higher than the guess
     public static void lower() {
         currentGameGuesses++;
         System.out.println("It's lower.");
     }
 
+    //Method tests the guess, taking it in until the game is finished
     public static void testGuess(int x) {
         if(x == randomNumber) {
             currentGameGuesses++;
@@ -85,6 +94,10 @@ public class GuessGame {
         }
     }
 
+    //Method asks if the player would like to play again
+    //Two options: Continue or Exit
+    //Parameter sc: allows this method to intake information from the terminal
+    //Parameter rand: generates a random number
     public static void playAgain(Scanner sc, Random rand) {
         System.out.println("Would you like to play again? ");
         String response = sc.next();
@@ -93,13 +106,13 @@ public class GuessGame {
         }
     }
 
+    //Displays collected results in format
+    //Parameter fmt: allows this method to format the decimals in such fashion of 0.##.
     public static void displayResults(DecimalFormat fmt) {
         System.out.println("Overall results: ");
         System.out.println("Total games = " + totalGames);
         System.out.println("Guess/game = " + fmt.format((double) totalGuesses / (double) totalGames));
         System.out.println("Best game: " + bestGame);
     }
-
-
 
 }
