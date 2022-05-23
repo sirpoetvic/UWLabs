@@ -6,7 +6,7 @@
 //
 //This program is intended to print out the an 
 //ASCII impression of the Space Needle
-package UWLabs.SpaceNeedleUWLab_Folder;
+package SpaceNeedleUWLab_Folder;
 public class PartB {
     public static final int SIZE = 4;
     public static void main(String[] args) {

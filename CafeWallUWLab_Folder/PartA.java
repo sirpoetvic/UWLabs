@@ -7,7 +7,7 @@
 //This program is intended to produce a cube and on the primary side shown
 //to the user, a circle and triangle are produced. This program
 //depicts accurate ability of use of a GUI (Graphical User Interface)
-package UWLabs.CafeWallUWLab_Folder;
+package CafeWallUWLab_Folder;
 import java.awt.*;
 public class PartA {
       public static void main(String[] args) {

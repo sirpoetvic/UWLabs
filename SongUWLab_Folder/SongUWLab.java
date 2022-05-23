@@ -6,7 +6,7 @@
 //
 //This program is intended to print out the lyrics of the song
 //"There Was An Old Woman Who Swallowed a Fly"
-package UWLabs.SongUWLab_Folder;
+package SongUWLab_Folder;
 public class SongUWLab {
 
     public static void main(String[] args) {
@@ -121,7 +121,5 @@ public class SongUWLab {
         System.out.println("I don't know why she swallowed that fly,");
         System.out.println("Perhaps she'll die.");
     }
-
   
 }
-

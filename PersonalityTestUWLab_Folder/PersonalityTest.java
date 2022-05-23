@@ -7,7 +7,7 @@
 //This program is intended to intake a file
 //of data for the Keirsey Temperament Sorter
 //and return a personality of 4 letters.
-package UWLabs.PersonalityTestUWLab_Folder;
+package PersonalityTestUWLab_Folder;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;

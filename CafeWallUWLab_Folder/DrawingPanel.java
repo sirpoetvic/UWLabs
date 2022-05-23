@@ -1,4 +1,4 @@
-package UWLabs.CafeWallUWLab_Folder;
+package CafeWallUWLab_Folder;
 /*
  * =====================================================================
  * DrawingPanel.java

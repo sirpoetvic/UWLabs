@@ -1,4 +1,4 @@
-package UWLabs.YazInterpreterUWLab_Folder;
+package YazInterpreterUWLab_Folder;
 
 import java.util.Scanner;
 import java.io.File;
@@ -28,6 +28,8 @@ public class YazInterpreterUWLab {
         System.out.println("interpreted YazLang program.");
     }
 
+    //Selects option
+    //Interpret, View, Quit
     public static void optionSelect(Scanner sc) throws FileNotFoundException {
         System.out.println("(I)nterpret YazLang program, (V)iew output, (Q)uit? ");
         String response = sc.nextLine().toLowerCase();
@@ -52,6 +54,8 @@ public class YazInterpreterUWLab {
 
     }
 
+    //Converts temperature based on line taken in by scanner
+    //Parameter stringCheck: Takes in line to perform "CONVERT"
     public static void convert(Scanner stringCheck) {
         stringCheck.next();
         int temp = Integer.parseInt(stringCheck.next());
@@ -66,6 +70,11 @@ public class YazInterpreterUWLab {
         System.out.println();
     }
 
+    //Prints range, taking in start number, and end number, jumping by skip number
+    //firstNumber - start
+    //secondNumber - end
+    //thirdNumber - jump
+    //Parameter stringCheck: Takes in line to perform "RANGE" on
     public static void range(Scanner stringCheck) {
         stringCheck.next();
         int firstNumber = Integer.parseInt(stringCheck.next());
@@ -77,6 +86,8 @@ public class YazInterpreterUWLab {
         System.out.println();
     }
 
+    //Repeats string by specified number
+    //Parameter stringCheck: Takes in line to perform "REPEAT" on
     public static void repeat(Scanner stringCheck) {
         stringCheck.next();
         while (stringCheck.hasNext()) {
@@ -90,7 +101,9 @@ public class YazInterpreterUWLab {
         System.out.println();
     }
 
-
+    //Prints content based on whether consoleOutput is on. 
+    //consoleOutput is activated when the command is set to "V", and to a specified file if "I"
+    //Parameter sc: processes through lines until no more lines
     public static void contentConverter(Scanner sc) throws FileNotFoundException {
         System.out.println("input file name?");
         String inputFile = sc.nextLine();

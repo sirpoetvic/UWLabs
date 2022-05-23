@@ -7,7 +7,7 @@
 //This program is intended to help with budgeting
 //and takes in income and expenses
 //in order to produce a response based on the inputs
-package UWLabs.BudgeterUWLab_Folder;
+package BudgeterUWLab_Folder;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 public class BudgeterUWLab {
@@ -118,6 +118,7 @@ public class BudgeterUWLab {
         System.out.println("Good job!");
       }
     }
+    
     //Spender Response Category
     if(netIncome <= 0) {
       System.out.println();
