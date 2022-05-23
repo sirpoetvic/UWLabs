@@ -8,6 +8,7 @@
 //of data for the Keirsey Temperament Sorter
 //and return a personality of 4 letters.
 package PersonalityTestUWLab_Folder;
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,12 +26,13 @@ public class PersonalityTest {
         Scanner input = new Scanner(new File("..\\UWLabs\\PersonalityTestUWLab_Folder\\" + inputFile));
         PrintStream output = new PrintStream(new File("..\\UWLabs\\PersonalityTestUWLab_Folder\\" + outputFile));
         computeResponses(input, output);
-        sc.close(); 
+        sc.close();
         input.close();
-        output.close(); 
+        output.close();
 
     }
- 
+
+    // Prints the intro message
     public static void printIntro() {
         System.out.println("This program processes a file of answers to the");
         System.out.println("Keirsey Temperament Sorter. It converts the");
@@ -40,14 +42,20 @@ public class PersonalityTest {
 
     }
 
+    // computes the responses
+    // Parameter input: Takes in tne next line from the file
+    // Parameter output: Outputs the complete response to a file
     public static void computeResponses(Scanner input, PrintStream output) {
         while (input.hasNextLine()) {
             String name = input.nextLine();
             String[] dataArray = input.nextLine().toLowerCase().split("");
-            output.println(name + ": " + Arrays.toString(singleUser(name,dataArray)[2]) + " = " + determineType(singleUser(name, dataArray)));
+            output.println(name + ": " + Arrays.toString(singleUser(dataArray)[2]) + " = "
+                    + determineType(singleUser(dataArray)));
         }
     }
 
+    // Determines type based on percents from collected data
+    // Parameter organizedResults: Intakes the percentages of traits
     public static String determineType(int[][] organizedResults) {
         int[] tempPercentSet = organizedResults[2];
 
@@ -68,7 +76,7 @@ public class PersonalityTest {
         } else if (tempPercentSet[1] == 50) {
             identification += "X";
         }
-        
+
         if (tempPercentSet[2] < 50) {
             identification += "T";
         } else if (tempPercentSet[2] > 50) {
@@ -76,7 +84,7 @@ public class PersonalityTest {
         } else if (tempPercentSet[2] == 50) {
             identification += "X";
         }
-       
+
         if (tempPercentSet[3] < 50) {
             identification += "J";
         } else if (tempPercentSet[3] > 50) {
@@ -84,12 +92,14 @@ public class PersonalityTest {
         } else if (tempPercentSet[3] == 50) {
             identification += "X";
         }
-        
+
         return identification;
 
     }
 
-    public static int[][] singleUser(String name, String[] dataArray) {
+    // For a single user, computes an array of output data based on trait data
+    // Parameter dataArray: Trait data in terms of letters
+    public static int[][] singleUser(String[] dataArray) {
         // Introvert/Extrovert Data
         int extrovertA = 0;
         int introvertB = 0;
@@ -162,10 +172,10 @@ public class PersonalityTest {
         int TFpercent = (int) Math.round((feelingB / (double) (feelingB + thinkingA)) * 100);
         int JPpercent = (int) Math.round((percievingB / (double) (percievingB + judgingA)) * 100);
 
-        int[][] organizedResults = new int[][] { {extrovertA, sensationA, thinkingA, judgingA},
-                                                 {introvertB, iNtuitionB, feelingB, percievingB}, 
-                                                 {IEpercent, SNpercent, TFpercent, JPpercent}
-                                                };
+        int[][] organizedResults = new int[][] { { extrovertA, sensationA, thinkingA, judgingA },
+                { introvertB, iNtuitionB, feelingB, percievingB },
+                { IEpercent, SNpercent, TFpercent, JPpercent }
+        };
         return organizedResults;
 
     }
