@@ -127,7 +127,6 @@ public class YazInterpreterUWLab {
         }
         System.setOut(console);
         consoleOutput = true;
-        
     }
 
     public static void quit() {
