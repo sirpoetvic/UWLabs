@@ -1,10 +1,12 @@
 package CrittersUWLab_Folder;
 
 import java.awt.*;
+
 public class Critter {
     public Critter() {
 
     }
+
     public Direction getMove() {
 
     }
@@ -22,7 +24,7 @@ public class Critter {
     }
 
     public String toString() {
-        
+
     }
-    
+
 }

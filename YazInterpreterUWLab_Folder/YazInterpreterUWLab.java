@@ -35,7 +35,7 @@ public class YazInterpreterUWLab {
         String response = sc.nextLine().toLowerCase();
         boolean noSelectedOption = true;
 
-        while (noSelectedOption)
+        while (noSelectedOption) {
             if (response.equals("i")) {
                 consoleOutput = false;
                 contentConverter(sc);
@@ -51,6 +51,7 @@ public class YazInterpreterUWLab {
             } else {
                 optionSelect(sc);
             }
+        }
 
     }
 
@@ -107,14 +108,15 @@ public class YazInterpreterUWLab {
     public static void contentConverter(Scanner sc) throws FileNotFoundException {
         System.out.println("input file name?");
         String inputFile = sc.nextLine();
-        Scanner input = new Scanner(new File("..\\UWLabs\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile));
+        Scanner input = new Scanner(new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile));
 
         if(!consoleOutput) {
             System.out.println("output file name?");
             String outputFile = sc.nextLine();
-            PrintStream output = new PrintStream(new File("..\\UWLabs\\UWLabs\\YazInterpreterUWLab_Folder\\" + outputFile));
+            PrintStream output = new PrintStream(new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + outputFile));
             System.setOut(output);
         }
+        
         while (input.hasNextLine()) {
             String currentLine = input.nextLine();
             Scanner stringCheck = new Scanner(currentLine);

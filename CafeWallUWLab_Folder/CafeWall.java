@@ -10,7 +10,7 @@ package CafeWallUWLab_Folder;
 
 import java.awt.*;
 
-public class PartB {
+public class CafeWall {
     // static objects for DrawingPanel GUI
     static DrawingPanel draw = new DrawingPanel(650, 400);
     static Graphics graphics = draw.getGraphics();

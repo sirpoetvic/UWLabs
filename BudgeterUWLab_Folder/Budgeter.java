@@ -12,7 +12,7 @@ package BudgeterUWLab_Folder;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class BudgeterUWLab {
+public class Budgeter {
 
   public static double incomeTotal;
   public static double incomeTotalDaily;
@@ -34,8 +34,7 @@ public class BudgeterUWLab {
 
   // Prints the intro message
   public static void intro() {
-    System.out
-        .println("This program asks for your monthly income and expenses, then tells you your net monthly income.");
+    System.out.println("This program asks for your monthly income and expenses, then tells you your net monthly income.");
     System.out.println();
   }
 
