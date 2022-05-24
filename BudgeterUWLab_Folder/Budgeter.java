@@ -7,8 +7,6 @@
 //This program is intended to help with budgeting
 //and takes in income and expenses
 //in order to produce a response based on the inputs
-package BudgeterUWLab_Folder;
-
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
