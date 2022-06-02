@@ -9,6 +9,7 @@ public class YazInterpreterUWLab {
     static boolean programRunning = true;
     static boolean consoleOutput = true;
     static PrintStream console = System.out;
+    static boolean validConsole = true;
 
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -102,20 +103,40 @@ public class YazInterpreterUWLab {
         System.out.println();
     }
 
+    public static void consoleOutput(Scanner sc) {
+        while(validConsole) {
+            System.out.println("output file name?");
+            Scanner output = new Scanner(System.in);
+            String outputFile = sc.nextLine();
+            File tempOutput = new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + outputFile);
+            if(tempOutput.exists()) {
+                output = new Scanner(tempOutput);
+                PrintStream outputFile = new PrintStream(tempOutput);
+                System.setOut(output);
+                validConsole = false;
+            } else {
+                System.out.println("");
+                consoleOutput
+            }
+        }
+    }
+
     //Prints content based on whether consoleOutput is on. 
     //consoleOutput is activated when the command is set to "V", and to a specified file if "I"
     //Parameter sc: processes through lines until no more lines
     public static void contentConverter(Scanner sc) throws FileNotFoundException {
         System.out.println("input file name?");
+        Scanner input = new Scanner(System.in);
         String inputFile = sc.nextLine();
-        Scanner input = new Scanner(new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile));
-
-        if(!consoleOutput) {
-            System.out.println("output file name?");
-            String outputFile = sc.nextLine();
-            PrintStream output = new PrintStream(new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + outputFile));
-            System.setOut(output);
+        File tempInput = new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + inputFile);
+        if(tempInput.exists())
+            input = new Scanner(tempInput);
+        else {
+            System.out.println("");
+            contentConverter(sc);
         }
+        
+
         
         while (input.hasNextLine()) {
             String currentLine = input.nextLine();
