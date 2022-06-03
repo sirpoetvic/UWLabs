@@ -9,8 +9,6 @@ public class YazInterpreterUWLab {
     static boolean programRunning = true;
     static boolean consoleOutput = true;
     static PrintStream console = System.out;
-    static boolean validConsole = true;
-
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
@@ -103,22 +101,13 @@ public class YazInterpreterUWLab {
         System.out.println();
     }
 
-    public static void consoleOutput(Scanner sc) {
-        while(validConsole) {
-            System.out.println("output file name?");
-            Scanner output = new Scanner(System.in);
-            String outputFile = sc.nextLine();
-            File tempOutput = new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + outputFile);
-            if(tempOutput.exists()) {
-                output = new Scanner(tempOutput);
-                PrintStream outputFile = new PrintStream(tempOutput);
-                System.setOut(output);
-                validConsole = false;
-            } else {
-                System.out.println("");
-                consoleOutput
-            }
-        }
+    public static void consoleOutput(Scanner sc) throws FileNotFoundException {
+        System.out.println("output file name?");
+        Scanner output = new Scanner(System.in);
+        String outputFile = sc.nextLine();
+        File tempOutput = new File("..\\UWLabs\\YazInterpreterUWLab_Folder\\" + outputFile);
+        PrintStream outputStream = new PrintStream(tempOutput);
+        System.setOut(outputStream);
     }
 
     //Prints content based on whether consoleOutput is on. 
@@ -132,11 +121,12 @@ public class YazInterpreterUWLab {
         if(tempInput.exists())
             input = new Scanner(tempInput);
         else {
-            System.out.println("");
+            System.out.println("File not found. Try again: ");
             contentConverter(sc);
         }
-        
 
+        if(!consoleOutput) 
+            consoleOutput(sc);
         
         while (input.hasNextLine()) {
             String currentLine = input.nextLine();

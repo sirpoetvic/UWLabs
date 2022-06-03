@@ -8,7 +8,7 @@
 //ASCII impression of the Space Needle
 package SpaceNeedleUWLab_Folder;
 
-public class PartB {
+public class SpaceNeedle {
     public static final int SIZE = 4;
 
     public static void main(String[] args) {

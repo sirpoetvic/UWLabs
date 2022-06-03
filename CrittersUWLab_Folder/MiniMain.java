@@ -1,3 +1,4 @@
+package CrittersUWLab_Folder;
 // CSE 142 Critters
 // Authors: Marty Stepp, Stuart Reges
 //
