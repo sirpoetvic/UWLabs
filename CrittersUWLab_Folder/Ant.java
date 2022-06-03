@@ -3,8 +3,17 @@ package CrittersUWLab_Folder;
 import java.awt.*;
 
 public class Ant extends Critter {
+    private boolean north = true;
+    private Direction d;
     public Ant(boolean walkSouth) {
         super();
+        if(walkSouth) {
+            north = false;
+            d = Direction.SOUTH;
+        }
+        else
+            d = Direction.NORTH;
+    }
         public boolean eat() {
             return true;
         }
@@ -18,12 +27,25 @@ public class Ant extends Critter {
         }
     
         public Direction getMove() {
-            return Direction.CENTER;
+            if(d.equals(Direction.SOUTH)) {
+                d = Direction.EAST;
+                return Direction.SOUTH;
+            }
+            else if(d.equals(Direction.EAST) && north) {
+                d = Direction.NORTH;
+                return Direction.EAST;
+            }
+            else if(d.equals(Direction.EAST)) {
+                d = Direction.SOUTH;
+                return Direction.EAST;
+            }
+            else {
+                d = Direction.EAST;
+                return Direction.NORTH;
+            }
         }
     
         public String toString() {
             return "%";
         }
-    }
-
 }

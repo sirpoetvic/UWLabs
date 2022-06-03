@@ -3,8 +3,12 @@ package CrittersUWLab_Folder;
 import java.awt.*;
 
 public class Bird extends Critter {
+    private Direction d;
+    private int steps;
+    private Direction lastMove = Direction.NORTH;
     public Bird() {
         super();
+    }
         public boolean eat() {
             return false;
         }
@@ -21,12 +25,37 @@ public class Bird extends Critter {
         }
     
         public Direction getMove() {
-            
+            if(steps % 12 < 3) {
+                steps++;
+                lastMove = Direction.NORTH;
+                return Direction.NORTH;
+            }
+            else if(steps % 12 < 6) {
+                steps++;
+                lastMove = Direction.EAST;
+                return Direction.EAST;
+            }
+            else if(steps % 12 < 9) {
+                steps++;
+                lastMove = Direction.SOUTH;
+                return Direction.SOUTH;
+            }
+            else {
+                steps++;
+                lastMove = Direction.WEST;
+                return Direction.WEST;
+            }
+
         }
     
         public String toString() {
-            return "?";
+            if (lastMove.equals(Direction.NORTH))
+                return "^";
+            else if (lastMove.equals(Direction.EAST))
+                return ">";
+            else if (lastMove.equals(Direction.SOUTH))
+                return "V";
+            else
+                return "<";
         }
-    }
-
 }

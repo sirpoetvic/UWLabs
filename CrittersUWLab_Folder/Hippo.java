@@ -1,17 +1,18 @@
 package CrittersUWLab_Folder;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Hippo extends Critter {
     private int steps = 0;
     private int hunger;
     private boolean hungry;
+
     public Hippo(int hunger) {
         super();
         this.hunger = hunger;
-
-        
     }
+
         public boolean eat() {
             if(hunger > 0) {
                 hunger--;
@@ -38,11 +39,14 @@ public class Hippo extends Critter {
         }
     
         public Direction getMove() {
-            return 
+            Random r = new Random();
+            if (r > 5) {
+                
+            }
+
         }
     
         public String toString() {
             return "" + hunger;
         }
-    }
 }
