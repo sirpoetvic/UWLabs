@@ -14,57 +14,63 @@ public class Hippo extends Critter {
         this.hunger = hunger;
     }
 
-        public boolean eat() {
-            if(hunger > 0) {
-                hunger--;
-                return true;
-            }
-            else
-                return false;
+    //Method returns if Hippo is hungry
+    public boolean eat() {
+        if(hunger > 0) {
+            hunger--;
+            return true;
         }
-    
-        public Attack fight(String opponent) {
-            if(hungry)
-                return Attack.SCRATCH;
-            else
-                return Attack.POUNCE;
-                
-        }
-    
-        public Color getColor() {
-            if(hungry)
-                return Color.GRAY;
-            else
-                return Color.WHITE;
-        }
-    
-        public Direction getMove() {
-            Random r = new Random();
-            int rand = r.nextInt(4) + 1;
-            if(steps % 5 == 0) {
-                if(rand == 0) {
-                    lastDirection = Direction.NORTH;
-                    return Direction.NORTH;
-                }
-                else if(rand == 1) {
-                    lastDirection = Direction.EAST;
-                    return Direction.EAST;
-                }
-                else if(rand == 2) {
-                    lastDirection = Direction.SOUTH;
-                    return Direction.SOUTH;
-                }
-                else {
-                    lastDirection = Direction.WEST;
-                    return Direction.WEST;
-                }
-            }
+        else
+            return false;
+    }
 
-            else
-                return lastDirection;
+    //Method returns an attack
+    public Attack fight(String opponent) {
+        if(hungry)
+            return Attack.SCRATCH;
+        else
+            return Attack.POUNCE;
+            
+    }
+
+    //Method returns color of Hippo
+    //Gray if hungry, white if not
+    public Color getColor() {
+        if(hungry)
+            return Color.GRAY;
+        else
+            return Color.WHITE;
+    }
+
+    //Gets movement for Hippo
+    public Direction getMove() {
+        Random r = new Random();
+        int rand = r.nextInt(4) + 1;
+        if(steps % 5 == 0) {
+            if(rand == 0) {
+                lastDirection = Direction.NORTH;
+                return Direction.NORTH;
+            }
+            else if(rand == 1) {
+                lastDirection = Direction.EAST;
+                return Direction.EAST;
+            }
+            else if(rand == 2) {
+                lastDirection = Direction.SOUTH;
+                return Direction.SOUTH;
+            }
+            else {
+                lastDirection = Direction.WEST;
+                return Direction.WEST;
+            }
         }
-    
-        public String toString() {
-            return "" + hunger;
-        }
+
+        else
+            return lastDirection;
+    }
+
+    //Method gives depiction of Hippo on GUI
+    public String toString() {
+        return "" + hunger;
+    }
 }

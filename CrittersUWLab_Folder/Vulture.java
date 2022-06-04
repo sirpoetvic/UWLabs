@@ -12,6 +12,7 @@ public class Vulture extends Critter {
         super();
     }
 
+    //Method returns if Vulture is going to eat
     public boolean eat() {
         if (timeToEat) {
             timeToEat = false;
@@ -20,6 +21,7 @@ public class Vulture extends Critter {
             return false;
     }
 
+    //Method returns an attack based on opponent
     public Attack fight(String opponent) {
         timeToEat = true;
         if (opponent.equals("%")) {
@@ -29,10 +31,12 @@ public class Vulture extends Critter {
         }
     }
 
+    //Method returns color of Vulture (always black)
     public Color getColor() {
         return Color.BLACK;
     }
 
+    //Gets movement for Vulture
     public Direction getMove() {
         if(steps % 12 < 3) {
             steps++;
@@ -57,6 +61,7 @@ public class Vulture extends Critter {
 
     }
 
+    //Method gives depiction of Vulture on GUI
     public String toString() {
         if (lastMove.equals(Direction.NORTH))
             return "^";

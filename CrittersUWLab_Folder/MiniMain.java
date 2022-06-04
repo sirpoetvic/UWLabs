@@ -20,7 +20,7 @@ package CrittersUWLab_Folder;
 public class MiniMain {
 	public static void main(String[] args) {
 		test1();
-		// test2();
+		test2();
 	}
 	
 	// Small, very simple test (Ant only).
@@ -40,7 +40,6 @@ public class MiniMain {
 	}
 	
 
-/*
 	// A bigger test (move several animals).  You can un-comment this
 	// test (delete the /* and * /) once you implement the rest of the animals.
 	// You'll also need to un-comment the call to test2 up in main.
@@ -77,7 +76,6 @@ public class MiniMain {
 		moves(vulture2, 8);
 		System.out.println();
 	}
-*/
 	
 	// Moves the given animal the given number of times and prints which
 	// way the animal wanted to move each time.

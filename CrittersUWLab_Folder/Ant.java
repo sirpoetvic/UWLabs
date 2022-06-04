@@ -16,18 +16,22 @@ public class Ant extends Critter {
         else
             d = Direction.NORTH;
     }
+    //Method returns if Ant is going to eat (always true)
     public boolean eat() {
         return true;
     }
 
+    //Method returns an attack
     public Attack fight(String opponent) {
         return Attack.SCRATCH;
     }
 
+    //Method returns color of Ant (always red)
     public Color getColor() {
         return Color.RED;
     }
 
+    //Gets movement for Ant
     public Direction getMove() {
         if(d.equals(Direction.SOUTH)) {
             d = Direction.EAST;
@@ -47,6 +51,7 @@ public class Ant extends Critter {
         }
     }
 
+    //Method gives depiction of Ant on GUI
     public String toString() {
         return "%";
     }
